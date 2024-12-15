@@ -1,0 +1,43 @@
+﻿<Window x:Class="OdciskiPalcow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OdciskiPalcow"
+        mc:Ignorable="d"
+        Title="Wprowadzanie danych do paszportu. Wykonał: PESEL" Height="270" Width="800" Background="CadetBlue">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Grid Margin="20,20,20,0">
+                <Label Content="Numer"></Label>
+                <TextBox TextChanged="Numer_TextChanged" x:Name="Numer" HorizontalAlignment="Right" Width="200" Background="Azure"></TextBox>
+            </Grid>
+            <Grid Margin="20,5,20,0">
+                <Label Content="Imię"></Label>
+                <TextBox x:Name="Imie" HorizontalAlignment="Right" Width="200" Background="Azure"></TextBox>
+            </Grid>
+            <Grid Margin="20,5,20,0">
+                <Label Content="Nazwisko"></Label>
+                <TextBox x:Name="Nazwisko" HorizontalAlignment="Right" Width="200" Background="Azure"></TextBox>
+            </Grid>
+            <GroupBox Header="Kolor oczu" Margin="20">
+                <StackPanel>
+                    <RadioButton x:Name="Niebieskie" Margin="7" IsChecked="True" GroupName="Kolor" Content="niebieskie"></RadioButton>
+                    <RadioButton x:Name="Zielone" Margin="7" GroupName="Kolor" Content="zielone"></RadioButton>
+                    <RadioButton x:Name="Piwne" Margin="7" GroupName="Kolor" Content="piwne"></RadioButton>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image x:Name="Zdjecie" Height="180" Margin="10" Source="/000-zdjecie.jpg" ></Image>
+                <Image x:Name="Odcisk" Height="180" Margin="10" Source="/000-odcisk.jpg"></Image>
+            </StackPanel>
+            <Button x:Name="Ok" Click="Ok_Click" Content="OK" Width="200" Height="30" Background="Azure"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
