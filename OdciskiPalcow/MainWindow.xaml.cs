@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,20 +23,28 @@ namespace OdciskiPalcow
         }
         private void Ok_Click(object sender, RoutedEventArgs e)
         {
-            string kolor = "";
-            if (Zielone.IsChecked == true)
+            Regex sprawdzNazwisko = new Regex("^[A-Z]{1}[a-z]");
+            if(sprawdzNazwisko.IsMatch(Nazwisko.Text))
             {
-                kolor = "zielone";
+                string kolor = "";
+                if (Zielone.IsChecked == true)
+                {
+                    kolor = "zielone";
+                }
+                if (Niebieskie.IsChecked == true)
+                {
+                    kolor = "niebieskie";
+                }
+                if (Piwne.IsChecked == true)
+                {
+                    kolor = "piwne";
+                }
+                MessageBox.Show($"{Imie.Text} {Nazwisko.Text} kolor oczu {kolor}");
             }
-            if (Niebieskie.IsChecked == true)
+            else
             {
-                kolor = "niebieskie";
+                MessageBox.Show("Nazwisko musi zaczynać się z dużej litery.");
             }
-            if (Piwne.IsChecked == true)
-            {
-                kolor = "piwne";
-            }
-            MessageBox.Show($"{Imie.Text} {Nazwisko.Text} kolor oczu {kolor}");
         }
 
         private void Numer_TextChanged(object sender, TextChangedEventArgs e)
